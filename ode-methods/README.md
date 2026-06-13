@@ -61,11 +61,7 @@ This method is more stable for rapidly decaying problems.
 ### Trapezoidal Rule
 
 $$
-y_{n+1}
-=
-\frac{1+\frac{h\lambda}{2}}
-{1-\frac{h\lambda}{2}}
-y_n
+y_{n+1}=\frac{1+\frac{h\lambda}{2}}{1-\frac{h\lambda}{2}}y_n
 $$
 
 The trapezoidal rule usually has better accuracy than the Euler methods.
