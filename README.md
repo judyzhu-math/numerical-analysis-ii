@@ -1,2 +1,26 @@
 # numerical-analysis-ii
 This repository contains Python implementations and experiments from my Numerical Analysis II course.  Topics include numerical methods for ordinary differential equations, stability analysis, Runge-Kutta methods, and implicit methods.
+
+## Contents
+
+### 1. ODE Stability
+
+Comparison of Explicit Euler, Implicit Euler, and the Trapezoidal Rule for the model problem
+
+$$
+y' = \lambda y, \quad y(0)=1.
+$$
+
+This example is used to study accuracy, convergence, and stability behavior.
+
+### 2. Runge-Kutta Methods
+
+Implementation and stability analysis of classical Runge-Kutta methods.
+
+### 3. Implicit Methods
+
+Experiments with implicit time-stepping methods such as the trapezoidal rule and Radau-type methods.
+
+## Purpose
+
+The goal of this repository is to organize my learning notes and coding experiments for Numerical Analysis II.
