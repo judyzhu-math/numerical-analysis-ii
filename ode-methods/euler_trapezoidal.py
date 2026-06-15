@@ -81,16 +81,16 @@ def print_results(lam, Ns):
         ("Trapezoidal Rule", trapezoidal_rule),
     ]
 
-    print("=" * 70)
+    print("=" * 66)
     print(f"Model problem: y' = {lam}y,  y(0) = 1,  interval [0, 1]")
     print(f"Exact solution at x = 1: y(1) = exp({lam}) = {y_exact:.10e}")
-    print("=" * 70)
+    print("=" * 66)
     print()
 
     for name, method in methods:
-        print("-" * 70)
+        print("-" * 66)
         print(f"Method: {name}")
-        print("-" * 70)
+        print("-" * 66)
         print(f"{'N':>6} {'h':>12} {'Numerical y(1)':>20} {'Absolute Error':>20}")
 
         for N in Ns:
@@ -103,11 +103,45 @@ def print_results(lam, Ns):
         print()
 
 
+def plot_errors(lam, Ns):
+    """
+    Plot absolute errors for different numerical methods.
+    """
+    y_exact = exact_solution(1.0, lam)
+
+    methods = [
+        ("Explicit Euler", explicit_euler),
+        ("Implicit Euler", implicit_euler),
+        ("Trapezoidal Rule", trapezoidal_rule),
+    ]
+
+    for name, method in methods:
+        errors = []
+
+        for N in Ns:
+            y_num = method(lam, N)
+            error = compute_error(y_num, y_exact)
+            errors.append(error)
+
+        plt.plot(Ns, errors, marker="o", label=name)
+
+    plt.xlabel("Number of steps N")
+    plt.ylabel("Absolute error at x = 1")
+    plt.title("Error Comparison for ODE Methods")
+    plt.yscale("log")
+    plt.legend()
+    plt.grid(True)
+
+    plt.savefig("error_plot.png", dpi=300)
+    plt.show()
+
+
 def main():
     lam = -10
-    Ns = [2, 4, 8, 16, 32, 64]
+    Ns = [2, 4, 8, 16, 32, 64, 128]
 
     print_results(lam, Ns)
+    plot_errors(lam, Ns)
 
 
 if __name__ == "__main__":
