@@ -66,6 +66,12 @@ $$
 
 The trapezoidal rule usually has better accuracy than the Euler methods.
 
+## Error Plot
+
+The plot below shows how the absolute error changes as the number of steps \(N\) increases.
+
+![Error Plot](error_plot.png)
+
 ## How to Run
 
 In the terminal, run:
