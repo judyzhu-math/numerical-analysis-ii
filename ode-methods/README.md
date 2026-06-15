@@ -72,6 +72,34 @@ The plot below shows how the absolute error changes as the number of steps \(N\)
 
 ![Error Plot](error_plot.png)
 
+## Explanation of the Error Plot
+
+The plot compares the absolute error of three numerical methods:
+
+- Explicit Euler Method
+- Implicit Euler Method
+- Trapezoidal Rule
+
+The x-axis represents the number of steps \(N\). A larger \(N\) means a smaller step size
+
+$$
+h = \frac{1}{N}.
+$$
+
+The y-axis represents the absolute error at \(x=1\):
+
+$$
+\text{error} = |y_{\text{numerical}}(1) - y_{\text{exact}}(1)|.
+$$
+
+The y-axis is shown on a logarithmic scale, so a downward trend means that the error is decreasing quickly.
+
+From the plot, we can see that as \(N\) increases, the errors of all three methods generally decrease. This means that using a smaller step size gives a more accurate numerical approximation.
+
+The Trapezoidal Rule has the smallest error for large \(N\), showing better accuracy than the two Euler methods. The Explicit Euler Method has large errors when \(N\) is small, which shows that it can behave poorly when the step size is too large.
+
+This experiment demonstrates the importance of both accuracy and stability in numerical methods for ordinary differential equations.
+
 ## How to Run
 
 In the terminal, run:
