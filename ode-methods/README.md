@@ -49,7 +49,7 @@ The Trapezoidal Rule is A-stable but not L-stable. Therefore, it can remain stab
 
 This example shows why A-stability alone is not always enough for stiff initial value problems.
 
-## Numerical Formulas
+## Euler and Trapezoidal Rule: Numerical Formulas
 
 ### Explicit Euler Method
 
@@ -111,8 +111,8 @@ This experiment demonstrates the importance of both accuracy and stability in nu
 
 
 
-# A-stable and L-stable for a stiff IVP
-## Analytic Solution
+## A-stable and L-stable for a stiff IVP
+### Analytic Solution
 
 The differential equation is
 
@@ -136,7 +136,7 @@ $$
 
 The term \(e^{-2000x}\) decays extremely quickly. This fast-decaying term makes the problem stiff.
 
-## Implicit Euler Scheme
+### Implicit Euler Scheme
 
 For the implicit Euler method,
 
@@ -159,7 +159,7 @@ $$
 
 This method is L-stable, so the rapidly decaying stiff component is strongly damped.
 
-## Trapezoidal Rule Scheme
+### Trapezoidal Rule Scheme
 
 For the trapezoidal rule,
 
@@ -181,7 +181,7 @@ $$
 
 The trapezoidal rule is A-stable but not L-stable. Therefore, for stiff problems, it may produce artificial oscillations that are not quickly damped.
 
-## Discussion
+### Discussion
 
 This example illustrates the difference between A-stability and L-stability.
 
