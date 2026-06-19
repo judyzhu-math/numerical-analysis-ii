@@ -109,12 +109,9 @@ The Trapezoidal Rule has the smallest error for large \(N\), showing better accu
 
 This experiment demonstrates the importance of both accuracy and stability in numerical methods for ordinary differential equations.
 
-## How to Run
-
-In the terminal, run:
 
 
-# Add an example of A-stable and L-stable for a stiff IVP
+# A-stable and L-stable for a stiff IVP
 ## Analytic Solution
 
 The differential equation is
