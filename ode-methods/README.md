@@ -181,6 +181,12 @@ $$
 
 The trapezoidal rule is A-stable but not L-stable. Therefore, for stiff problems, it may produce artificial oscillations that are not quickly damped.
 
+### A-stability vs. L-stability Plot
+
+The plot below compares the exact solution, the Implicit Euler method, and the Trapezoidal Rule for a stiff initial value problem.
+
+![A-stability vs L-stability](stiff_ivp_a_vs_l_stability.png)
+
 ### Discussion
 
 This example illustrates the difference between A-stability and L-stability.
