@@ -1,12 +1,22 @@
-# ODE Stability: Euler and Trapezoidal Methods
+# Numerical ODE Methods
 
-This folder contains a Python implementation comparing three numerical methods for solving the model ordinary differential equation
+This folder contains Python implementations and numerical experiments for ordinary differential equations from my Numerical Analysis II course.
+
+The main topics include one-step methods, error behavior, convergence, and stability for stiff and non-stiff initial value problems.
+
+## Content
+### 1. Euler and Trapezoidal Rule
+File:
+
+euler_trapezoidal.py
+
+This experiment compares the Explicit Euler method, Implicit Euler method, and Trapezoidal Rule for the model problem
 
 $$
 y' = \lambda y, \quad y(0)=1, \quad x \in [0,1].
 $$
 
-In this experiment, we use
+In this example, we use
 
 $$
 \lambda = -10.
@@ -18,27 +28,26 @@ $$
 y(x)=e^{\lambda x}.
 $$
 
-Therefore, at \(x=1\),
+The program computes the numerical solution at (x=1) for different step numbers (N), compares it with the exact solution, and plots the absolute error.
+
+### 2. A-stability vs. L-stability for a Stiff IVP
+File:
+
+stiff_ivp_a_vs_l_stability.py
+
+This experiment studies the stiff initial value problem
 
 $$
-y(1)=e^{-10}.
+y'(x)=2000(\cos x-y(x)), \quad y(0)=0, \quad x\in[0,1.5].
 $$
 
-## Methods
+The goal is to compare the behavior of the Implicit Euler method and the Trapezoidal Rule on a stiff problem.
 
-The following methods are implemented:
+The Implicit Euler method is L-stable, so it strongly damps rapidly decaying stiff components.
 
-1. Explicit Euler Method
-2. Implicit Euler Method
-3. Trapezoidal Rule
+The Trapezoidal Rule is A-stable but not L-stable. Therefore, it can remain stable while still producing artificial oscillations around the smooth exact solution.
 
-For different values of \(N\), the interval \([0,1]\) is divided into \(N\) equal steps, so the step size is
-
-$$
-h = \frac{1}{N}.
-$$
-
-The program compares the numerical approximation of \(y(1)\) with the exact value and prints the absolute error.
+This example shows why A-stability alone is not always enough for stiff initial value problems.
 
 ## Numerical Formulas
 
@@ -147,8 +156,7 @@ $$
 we obtain
 
 $$
-y_{n+1}
-=
+y_{n+1}=
 \frac{y_n+2000h\cos(x_{n+1})}{1+2000h}.
 $$
 
@@ -159,8 +167,7 @@ This method is L-stable, so the rapidly decaying stiff component is strongly dam
 For the trapezoidal rule,
 
 $$
-y_{n+1}
-=
+y_{n+1}=
 y_n+\frac{h}{2}
 \left[
 f(x_n,y_n)+f(x_{n+1},y_{n+1})
@@ -170,8 +177,7 @@ $$
 For this problem, this becomes
 
 $$
-y_{n+1}
-=
+y_{n+1}=
 \frac{(1-1000h)y_n+1000h(\cos x_n+\cos x_{n+1})}
 {1+1000h}.
 $$
