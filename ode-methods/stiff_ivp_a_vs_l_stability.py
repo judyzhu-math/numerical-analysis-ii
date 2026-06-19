@@ -3,18 +3,7 @@ import matplotlib.pyplot as plt
 
 
 def exact_solution(x):
-    """
-    Analytic solution of the stiff IVP:
-
-        y'(x) = 2000(cos(x) - y(x)),   y(0) = 0
-
-    The exact solution is:
-
-        y(x) =
-        (4000000 / 4000001) * cos(x)
-        + (2000 / 4000001) * sin(x)
-        - (4000000 / 4000001) * exp(-2000x)
-    """
+   
     return (
         (4000000 / 4000001) * math.cos(x)
         + (2000 / 4000001) * math.sin(x)
@@ -23,15 +12,7 @@ def exact_solution(x):
 
 
 def implicit_euler(N):
-    """
-    Implicit Euler method for
-
-        y'(x) = 2000(cos(x) - y(x))
-
-    Formula:
-
-        y_{n+1} = (y_n + 2000h cos(x_{n+1})) / (1 + 2000h)
-    """
+   
     a = 0.0
     b = 1.5
     h = (b - a) / N
@@ -53,18 +34,7 @@ def implicit_euler(N):
 
 
 def trapezoidal_rule(N):
-    """
-    Trapezoidal rule for
-
-        y'(x) = 2000(cos(x) - y(x))
-
-    Formula:
-
-        y_{n+1}
-        =
-        ((1 - 1000h)y_n + 1000h(cos(x_n) + cos(x_{n+1})))
-        / (1 + 1000h)
-    """
+   
     a = 0.0
     b = 1.5
     h = (b - a) / N
@@ -99,7 +69,7 @@ def exact_values(xs):
 def plot_results():
     """
     Plot the exact solution together with the numerical solutions
-    from Implicit Euler and the Trapezoidal Rule.
+    from Implicit Euler and the Trapezoidal Rule
     """
     N = 40
 
