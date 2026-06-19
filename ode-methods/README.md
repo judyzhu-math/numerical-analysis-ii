@@ -134,7 +134,7 @@ y(x)=\frac{4000000}{4000001}\cos x
 -\frac{4000000}{4000001}e^{-2000x}.
 $$
 
-The term \(e^{-2000x}\) decays extremely quickly. This fast-decaying term makes the problem stiff.
+The term $\(e^{-2000x}\)$ decays extremely quickly. This fast-decaying term makes the problem stiff.
 
 ### Implicit Euler Scheme
 
