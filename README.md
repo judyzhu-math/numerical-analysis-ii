@@ -4,7 +4,7 @@ This repository contains Python implementations and experiments from my Numerica
 ## Numerical ODEs
 
 ### 1. ODE Stability
-File:
+(1)File:
 
 euler_trapezoidal.py
 
@@ -16,7 +16,7 @@ $$
 
 This example is used to study accuracy, convergence, and stability behavior.
 
-File:
+(2)File:
 
 stiff_ivp_a_vs_l_stability.py
 
