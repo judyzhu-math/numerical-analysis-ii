@@ -4,6 +4,9 @@ This repository contains Python implementations and experiments from my Numerica
 ## Numerical ODEs
 
 ### 1. ODE Stability
+File:
+
+euler_trapezoidal.py
 
 Comparison of Explicit Euler, Implicit Euler, and the Trapezoidal Rule for the model problem
 
@@ -13,6 +16,17 @@ $$
 
 This example is used to study accuracy, convergence, and stability behavior.
 
+File:
+
+stiff_ivp_a_vs_l_stability.py
+
+This experiment studies the stiff initial value problem
+
+$$
+y'(x)=2000(\cos x-y(x)), \quad y(0)=0, \quad x\in[0,1.5].
+$$
+
+The goal is to compare the behavior of the Implicit Euler method and the Trapezoidal Rule on a stiff problem.
 ### 2. Runge-Kutta Methods
 
 Implementation and stability analysis of classical Runge-Kutta methods.
