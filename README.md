@@ -1,9 +1,9 @@
 # numerical-analysis-ii😁
 This repository contains Python implementations and experiments from my Numerical Analysis II course.  Topics include numerical methods for ordinary differential equations, stability analysis, Runge-Kutta methods, implicit methods, Krylov subspace methods.
 
-## Numerical ODEs
+## 1. Numerical ODEs
 
-### 1. ODE Stability
+### 1.1 ODE Stability
 (1)File:
 
 euler_trapezoidal.py
@@ -27,13 +27,67 @@ y'(x)=2000(\cos x-y(x)), \quad y(0)=0, \quad x\in[0,1.5].
 $$
 
 The goal is to compare the behavior of the Implicit Euler method and the Trapezoidal Rule on a stiff problem.
-### 2. Runge-Kutta Methods
+### 1.2. Runge-Kutta Methods
 
 Implementation and stability analysis of classical Runge-Kutta methods.
 
-### 3. Implicit Methods
+### 1.3. Implicit Methods
 
 Experiments with implicit time-stepping methods such as the trapezoidal rule and Radau-type methods.
+
+## 2. Finite Difference Methods for Boundary Value Problems
+
+This section studies finite difference discretizations for one-dimensional boundary value problems.
+
+### 2.1 Poisson Boundary Value Problem
+
+We consider the Poisson boundary value problem
+
+$$
+-u'' = f \quad \text{in } (0,1),
+$$
+
+with boundary conditions
+
+$$
+u(0)=a, \qquad u(1)=b.
+$$
+
+The finite difference approximation is used to compute numerical solutions on different grids.
+
+File:
+
+bvp_convergence.py
+
+Experiments include:
+
+- construction of the finite difference matrix
+- comparison with the analytic solution
+- computation of the discrete error
+- estimation of the convergence order
+
+### 2.2 Convergence order
+
+The error is measured using the discrete norm
+
+$$
+|u-u_h|2 =
+\left(
+\frac{1}{N-1}
+\sum{i=1}^{N-1}
+\left(u(x_i)-u_i\right)^2
+\right)^{1/2}.
+$$
+
+The convergence order is estimated using the ansatz
+
+$$
+|u-u_h|_2 \approx c h^\alpha.
+$$
+
+Here, (h) is the mesh width, (c) is a constant, and (\alpha) is the estimated convergence order.
+
+In the numerical experiment, the value of (\alpha) is computed using the errors on the two finest grids.
 
 ## Krylov Subspace Methods
 
