@@ -53,6 +53,24 @@ $$
 u(0)=a, \qquad u(1)=b.
 $$
 
+In this experiment, we use homogeneous boundary conditions
+
+$$
+u(0)=0, \qquad u(1)=0.
+$$
+
+The right-hand side is chosen as
+
+$$
+f(x) = -6\pi \cos(3\pi x) + 9\pi^2 x \sin(3\pi x),
+$$
+
+so that the analytic solution is
+
+$$
+u(x)=x\sin(3\pi x).
+$$
+
 The finite difference approximation is used to compute numerical solutions on different grids.
 
 File:
