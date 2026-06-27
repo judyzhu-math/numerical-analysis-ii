@@ -14,13 +14,9 @@ def exact_solution(x):
 
 def right_hand_side(x):
     """
-    Right-hand side of the Poisson problem:
+    Right-hand side of the Poisson problem: -u'' = f
 
-        -u'' = f
-
-    For u(x) = x sin(3 pi x), we have
-
-        f(x) = -6 pi cos(3 pi x) + 9 pi^2 x sin(3 pi x)
+    For u(x) = x sin(3 pi x), we have f(x) = -6 pi cos(3 pi x) + 9 pi^2 x sin(3 pi x)
     """
     return -6 * np.pi * np.cos(3 * np.pi * x) + 9 * np.pi**2 * x * np.sin(3 * np.pi * x)
 
@@ -62,18 +58,6 @@ def build_finite_difference_matrix(N):
 
 
 def solve_bvp(N):
-    """
-    Solve the Poisson boundary value problem using finite differences.
-
-    Parameters:
-        N: number such that h = 1 / N
-
-    Returns:
-        x_inner: interior grid points
-        numerical_solution: finite difference solution
-        exact_values: analytic solution evaluated at the grid points
-        error: discrete L2 error
-    """
     h = 1 / N
 
     # Interior grid points: x_1, ..., x_{N-1}
@@ -104,28 +88,14 @@ def compute_discrete_l2_error(exact_values, numerical_solution):
 
 
 def estimate_convergence_order(error_coarse, error_fine):
-    """
-    Estimate the convergence order alpha using two consecutive grids.
-
-    Since h_fine = h_coarse / 2,
-
-        alpha = log(error_coarse / error_fine) / log(2)
-    """
+    
     alpha = np.log(error_coarse / error_fine) / np.log(2)
 
     return alpha
 
 
 def run_convergence_experiment():
-    """
-    Run the convergence experiment for
-
-        h in {1/8, 1/16, 1/32, 1/64, 1/128, 1/256}
-
-    equivalently
-
-        N in {8, 16, 32, 64, 128, 256}.
-    """
+  
     N_values = [8, 16, 32, 64, 128, 256]
 
     errors = []
