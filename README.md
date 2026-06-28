@@ -103,9 +103,9 @@ $$
 |u-u_h|_2 \approx c h^\alpha.
 $$
 
-Here, (h) is the mesh width, (c) is a constant, and (\alpha) is the estimated convergence order.
+Here, (h) is the mesh width, (c) is a constant, and $\alpha$ is the estimated convergence order.
 
-In the numerical experiment, the value of (\alpha) is computed using the errors on the two finest grids.
+In the numerical experiment, the value of $\alpha$ is computed using the errors on the two finest grids.
 
 ## Krylov Subspace Methods
 
