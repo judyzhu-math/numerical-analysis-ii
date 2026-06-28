@@ -75,7 +75,7 @@ The finite difference approximation is used to compute numerical solutions on di
 
 File:
 
-bvp_convergence.py
+`bvp_convergence.py`
 
 Experiments include:
 
