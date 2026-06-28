@@ -6,7 +6,7 @@ This repository contains Python implementations and experiments from my Numerica
 ### 1.1 ODE Stability
 (1)File:
 
-euler_trapezoidal.py
+`euler_trapezoidal.py`
 
 Comparison of Explicit Euler, Implicit Euler, and the Trapezoidal Rule for the model problem
 
@@ -106,6 +106,95 @@ $$
 Here, (h) is the mesh width, (c) is a constant, and $\alpha$ is the estimated convergence order.
 
 In the numerical experiment, the value of $\alpha$ is computed using the errors on the two finest grids.
+
+## 3. Iterative Methods for Linear Systems
+
+This section studies iterative methods for solving the linear systems obtained from finite difference discretizations.
+
+The finite difference method leads to a linear system
+
+$$
+Au=b.
+$$
+
+Different solvers are used to solve the same system, and their performance is compared.
+
+### 3.1 Direct Solver, Damped Jacobi, and SOR
+
+File:
+
+`jacobi_sor.py`
+
+This experiment compares three methods:
+
+* direct solver
+* damped Jacobi method
+* SOR method
+
+For each mesh size, the script computes:
+
+* the condition number of the finite difference matrix
+* the discrete error compared with the analytic solution
+* the number of iterations required by the iterative methods
+* the best SOR relaxation parameter among the tested values
+
+The damped Jacobi method is tested with
+
+$$
+\omega \in {0.5, 0.8, 1.0}.
+$$
+
+The SOR method is tested with
+
+$$
+\omega \in {1.0, 1.2, 1.5, 1.8}.
+$$
+
+The stopping criterion for the iterative methods is
+
+$$
+|Au-b|_2 < 10^{-10}.
+$$
+
+### 3.2 Damped Jacobi Method
+
+The damped Jacobi method updates the approximation by
+
+$$
+u^{(k+1)} = u^{(k)} + \omega D^{-1}\left(b - Au^{(k)}\right).
+$$
+
+where (D) is the diagonal part of (A), and (\omega) is the damping parameter.
+
+The goal is to observe how the damping parameter affects the number of iterations.
+
+### 3.3 SOR Method
+
+The SOR method, or Successive Over-Relaxation method, is based on Gauss-Seidel iteration with a relaxation parameter.
+
+For each component, the update has the form
+
+$$
+u_i^{(k+1)} = (1-\omega)u_i^{(k)} + \omega \frac{b_i - \sum_{j<i} A_{ij}u_j^{(k+1)} - \sum_{j>i} A_{ij}u_j^{(k)}}{A_{ii}}.
+$$
+
+Here, `omega` is the relaxation parameter. When `omega = 1`, the method reduces to the Gauss-Seidel method.
+
+The relaxation parameter strongly influences the convergence speed. In this experiment, several values of `omega` are tested, and the best one is chosen according to the smallest number of iterations.
+
+### 3.4 Observation
+
+For the same mesh size, all converged solvers produce almost the same discretization error because they solve the same finite difference linear system.
+
+The main difference between the methods is not the final discretization error, but the number of iterations required to reach the stopping tolerance.
+
+In other words:
+
+* same error means the methods reached essentially the same numerical solution
+* different iteration counts show which method converges faster
+
+The condition number increases as the mesh is refined, which means that the linear system becomes more ill-conditioned for smaller mesh widths.
+
 
 ## Krylov Subspace Methods
 
