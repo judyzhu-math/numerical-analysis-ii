@@ -211,7 +211,7 @@ For each mesh width, the script computes:
 - the number of SOR iterations using the optimal parameter
 - the discrete error compared with the analytic solution
 
-As the mesh width \(h\) decreases, the value of \(\omega_{\mathrm{opt}}\) approaches \(2\). In the experiments, the optimal parameter usually reduces the number of iterations compared with the fixed tested values.
+As the mesh width $h$ decreases, the value of $\omega_{\mathrm{opt}}$ approaches $2$. In the experiments, the optimal parameter usually reduces the number of iterations compared with the fixed tested values.
 
 
 ## Krylov Subspace Methods
