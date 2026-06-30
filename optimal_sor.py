@@ -2,34 +2,18 @@ import numpy as np
 
 
 def exact_solution(x):
-    """
-    Analytic solution:
-
-        u(x) = x sin(3 pi x)
-    """
+    
     return x * np.sin(3 * np.pi * x)
 
 
 def right_hand_side(x):
-    """
-    Right-hand side for the Poisson problem:
-
-        -u'' = f
-
-    For u(x) = x sin(3 pi x),
-
-        f(x) = -6 pi cos(3 pi x) + 9 pi^2 x sin(3 pi x).
-    """
+   
     return -6 * np.pi * np.cos(3 * np.pi * x) + 9 * np.pi**2 * x * np.sin(3 * np.pi * x)
 
 
 def build_matrix(N):
     """
-    Build the finite difference matrix for
-
-        -u'' = f
-
-    with homogeneous Dirichlet boundary conditions.
+    Build the finite difference matrix for  -u'' = f with homogeneous Dirichlet boundary conditions.
     """
     h = 1 / N
     size = N - 1
@@ -65,9 +49,7 @@ def residual_norm(A, u, b):
 
 
 def discrete_l2_error(x, numerical_solution):
-    """
-    Compute the discrete L2 error compared with the analytic solution.
-    """
+
     exact_values = exact_solution(x)
     error = np.sqrt(np.mean((exact_values - numerical_solution) ** 2))
 
@@ -77,15 +59,14 @@ def discrete_l2_error(x, numerical_solution):
 def optimal_sor_parameter(h):
     """
     Compute the optimal SOR relaxation parameter for this model problem:
-
-        omega_opt = 2 / (1 + sin(pi h)).
+    omega_opt = 2 / (1 + sin(pi h)).
     """
     return 2 / (1 + np.sin(np.pi * h))
 
 
 def sor(A, b, omega, tol=1e-10, max_iter=10000):
     """
-    Successive Over-Relaxation method.
+    Successive Over-Relaxation method
     """
     n = len(b)
     u = np.zeros(n)
@@ -106,7 +87,7 @@ def sor(A, b, omega, tol=1e-10, max_iter=10000):
 
 def compare_sor_parameters():
     """
-    Compare SOR with several fixed omega values and with the theoretical optimal omega.
+    Compare SOR with several fixed omega values and with the theoretical optimal omega
     """
     N_values = [8, 16, 32, 64, 128]
     fixed_omegas = [1.0, 1.2, 1.5, 1.8]
