@@ -179,7 +179,7 @@ $$
 u_i^{(k+1)} = (1-\omega)u_i^{(k)} + \omega \frac{b_i - \sum_{j<i} A_{ij}u_j^{(k+1)} - \sum_{j>i} A_{ij}u_j^{(k)}}{A_{ii}}.
 $$
 
-Here, `$\omega$` is the relaxation parameter. When $\omega=1$, the method reduces to the Gauss-Seidel method.
+Here, $\omega$ is the relaxation parameter. When $\omega=1$, the method reduces to the Gauss-Seidel method.
 
 The relaxation parameter strongly influences the convergence speed. In this experiment, several values of `omega` are tested, and the best one is chosen according to the smallest number of iterations.
 
