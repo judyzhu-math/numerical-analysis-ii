@@ -182,18 +182,36 @@ Here, `omega` is the relaxation parameter. When `omega = 1`, the method reduces 
 
 The relaxation parameter strongly influences the convergence speed. In this experiment, several values of `omega` are tested, and the best one is chosen according to the smallest number of iterations.
 
-### 3.4 Observation
+### 3.4 Optimal Relaxation Parameter for SOR
 
-For the same mesh size, all converged solvers produce almost the same discretization error because they solve the same finite difference linear system.
+File:
 
-The main difference between the methods is not the final discretization error, but the number of iterations required to reach the stopping tolerance.
+`optimal_sor.py`
 
-In other words:
+This experiment studies the optimal relaxation parameter for the SOR method.
 
-* same error means the methods reached essentially the same numerical solution
-* different iteration counts show which method converges faster
+For the considered one-dimensional Poisson problem, the optimal relaxation parameter is given by
 
-The condition number increases as the mesh is refined, which means that the linear system becomes more ill-conditioned for smaller mesh widths.
+$$
+\omega_{\mathrm{opt}}=\frac{2}{1+\sin(\pi h)}.
+$$
+
+The script compares SOR with several fixed relaxation parameters and with the theoretical optimal parameter.
+
+The tested fixed parameters are
+
+$$
+\omega \in \{1.0, 1.2, 1.5, 1.8\}.
+$$
+
+For each mesh width, the script computes:
+
+- the theoretical optimal relaxation parameter
+- the number of SOR iterations for fixed parameters
+- the number of SOR iterations using the optimal parameter
+- the discrete error compared with the analytic solution
+
+As the mesh width \(h\) decreases, the value of \(\omega_{\mathrm{opt}}\) approaches \(2\). In the experiments, the optimal parameter usually reduces the number of iterations compared with the fixed tested values.
 
 
 ## Krylov Subspace Methods
