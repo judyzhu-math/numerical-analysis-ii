@@ -243,11 +243,11 @@ $$
 For each mesh width, the script computes:
 
 - the largest eigenvalue of the finite difference matrix
-- the damping parameter \(\omega\)
+- the damping parameter $\omega$
 - the number of Richardson iterations
 - the discrete error compared with the analytic solution
 
-As the mesh width \(h\) decreases, the largest eigenvalue of the finite difference matrix increases. Therefore, the damping parameter becomes smaller, and the number of iterations usually increases.
+As the mesh width $h$ decreases, the largest eigenvalue of the finite difference matrix increases. Therefore, the damping parameter becomes smaller, and the number of iterations usually increases.
 
 ## Krylov Subspace Methods
 
