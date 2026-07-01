@@ -214,6 +214,40 @@ For each mesh width, the script computes:
 
 As the mesh width $h$ decreases, the value of $\omega_{\mathrm{opt}}$ approaches $2$. In the experiments, the optimal parameter usually reduces the number of iterations compared with the fixed tested values.
 
+### 3.5 Richardson Iteration
+
+File:
+
+`richardson.py`
+
+This experiment applies Richardson iteration to the linear systems obtained from the finite difference discretization of the Poisson boundary value problem.
+
+The Richardson iteration is given by
+
+$$
+u^{(k+1)} = u^{(k)} + \omega (b - Au^{(k)}).
+$$
+
+For convergence, the damping parameter should satisfy
+
+$$
+0 < \omega < \frac{2}{\lambda_{\max}(A)}.
+$$
+
+In this experiment, a safety factor is used:
+
+$$
+\omega = 0.9 \cdot \frac{2}{\lambda_{\max}(A)}.
+$$
+
+For each mesh width, the script computes:
+
+- the largest eigenvalue of the finite difference matrix
+- the damping parameter \(\omega\)
+- the number of Richardson iterations
+- the discrete error compared with the analytic solution
+
+As the mesh width \(h\) decreases, the largest eigenvalue of the finite difference matrix increases. Therefore, the damping parameter becomes smaller, and the number of iterations usually increases.
 
 ## Krylov Subspace Methods
 
