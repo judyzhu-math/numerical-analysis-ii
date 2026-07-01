@@ -247,8 +247,6 @@ For each mesh width, the script computes:
 - the number of Richardson iterations
 - the discrete error compared with the analytic solution
 
-As the mesh width $h$ decreases, the largest eigenvalue of the finite difference matrix increases. Therefore, the damping parameter becomes smaller, and the number of iterations usually increases.
-
 #### Observation
 
 As the mesh width $h$ decreases, the largest eigenvalue $\lambda_{\max}(A)$ increases approximately like $O(h^{-2}). Since the Richardson damping parameter is chosen as
