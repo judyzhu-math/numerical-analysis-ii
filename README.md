@@ -249,6 +249,8 @@ For each mesh width, the script computes:
 
 As the mesh width $h$ decreases, the largest eigenvalue of the finite difference matrix increases. Therefore, the damping parameter becomes smaller, and the number of iterations usually increases.
 
+网格越细，矩阵越“难解”(陡峭)，Richardson 迭代越来越慢
+
 ## Krylov Subspace Methods
 
 This section contains implementations of numerical linear algebra methods based on Krylov subspaces.
