@@ -251,7 +251,7 @@ As the mesh width $h$ decreases, the largest eigenvalue of the finite difference
 
 #### Observation
 
-As the mesh width \(h\) decreases, the largest eigenvalue \(\lambda_{\max}(A)\) increases approximately like \(O(h^{-2})\). Since the Richardson damping parameter is chosen as
+As the mesh width $h$ decreases, the largest eigenvalue \(\lambda_{\max}(A)\) increases approximately like \(O(h^{-2})\). Since the Richardson damping parameter is chosen as
 
 $$
 \omega = 0.9 \cdot \frac{2}{\lambda_{\max}(A)},
@@ -259,9 +259,10 @@ $$
 
 the damping parameter becomes smaller when the grid is refined.
 
-The number of iterations increases significantly as \(h\) decreases. This shows that Richardson iteration becomes slower for finer grids.
+The number of iterations increases significantly as $h$ decreases. This shows that Richardson iteration becomes slower for finer grids.
 
 At the same time, the discretization error decreases approximately with second-order behavior. Therefore, finer grids improve accuracy but make the iterative linear solver more expensive.
+
 网格越细，矩阵越“难解”(陡峭)，Richardson 迭代越来越慢
 
 ## Krylov Subspace Methods
