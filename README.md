@@ -251,7 +251,7 @@ As the mesh width $h$ decreases, the largest eigenvalue of the finite difference
 
 #### Observation
 
-As the mesh width $h$ decreases, the largest eigenvalue \(\lambda_{\max}(A)\) increases approximately like \(O(h^{-2})\). Since the Richardson damping parameter is chosen as
+As the mesh width $h$ decreases, the largest eigenvalue $\lambda_{\max}(A)$ increases approximately like $O(h^{-2}). Since the Richardson damping parameter is chosen as
 
 $$
 \omega = 0.9 \cdot \frac{2}{\lambda_{\max}(A)},
